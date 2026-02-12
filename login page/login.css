@@ -11,8 +11,35 @@ body {
     align-items: center;
     min-height: 100vh;
     background: url('https://www.crio.do/blog/content/images/2023/08/A-Comprehensive-Guide-to-System-Design.png') no-repeat;
+     
+     
     background-size: cover;
     background-position: center;
+}
+
+:root {
+  --bg-dark: #0B0F0D;
+  --primary-green: #3BFF6B;
+  --soft-green: #2ECC71;
+  --mist-green: #1F8F5F;
+  --card-black: #121816;
+  --text-light: #E6F5EC;
+  --text-muted: #8FA89B;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.card {
+  background: var(--card-black);
+  box-shadow: 0 0 25px rgba(59,255,107,.3);
+}
+
+.button {
+  background: var(--primary-green);
+  color: black;
 }
 
 .wrapper{

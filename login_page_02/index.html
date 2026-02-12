@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Water Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* 3D Login Card */
+.login-box{
+    width:320px;
+    padding:40px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    transform:perspective(1000px) rotateX(8deg);
+    transition:0.4s;
+    z-index:2;
+}
+
+.login-box:hover{
+    transform:perspective(1000px) rotateX(0deg) scale(1.03);
+}
+
+.login-box h2{
+    color:white;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:none;
+    outline:none;
+    border-radius:8px;
+    background:rgba(255,255,255,0.15);
+    color:white;
+}
+
+.input-box input::placeholder{
+    color:#ddd;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#00c6ff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0072ff;
+}
+
+/* Falling Ball */
+.ball{
+    position:absolute;
+    top:-100px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,#fff,#00c6ff,#004e92);
+    box-shadow:0 0 25px #00c6ff;
+    animation:drop 1.8s ease-in forwards;
+}
+
+/* Gravity Drop */
+@keyframes drop{
+    0%{top:-120px;}
+    60%{top:60%;}
+    80%{top:52%;}
+    100%{top:55%;}
+}
+
+/* Ripple Effect */
+.ripple{
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,0.5);
+    animation:ripple 1.2s ease-out forwards;
+}
+
+@keyframes ripple{
+    0%{
+        transform:scale(0.3);
+        opacity:1;
+    }
+    100%{
+        transform:scale(10);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="ball" id="ball"></div>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <div class="input-box">
+        <input type="text" placeholder="Username">
+    </div>
+    <div class="input-box">
+        <input type="password" placeholder="Password">
+    </div>
+    <button>Sign In</button>
+</div>
+
+<script>
+/* Create Water Ripple When Ball Lands */
+setTimeout(() => {
+    let ripple = document.createElement("div");
+    ripple.classList.add("ripple");
+
+    ripple.style.left = "calc(50% - 10px)";
+    ripple.style.top = "55%";
+
+    document.body.appendChild(ripple);
+
+    // remove ripple after animation
+    setTimeout(()=> ripple.remove(),1200);
+},1700);
+</script>
+
+</body>
+</html>
