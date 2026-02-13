@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTRL + COFFEE + CHAOS: MAXIMUM OVERDRIVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CORE SETUP - CHAOTIC VIBES */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #050505; display: grid; gap: 80px; place-items: center; padding: 100px 0; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+
+        .slide-container {
+            width: 1280px; height: 720px;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            border: 6px solid #ff0055;
+            box-shadow: 0 0 50px rgba(255, 0, 85, 0.5);
+        }
+
+        /* GLITCH & NOISE OVERLAY */
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(56, 189, 248, 0.03) 2px),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.15) 0%, transparent 80%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .slide-container::after {
+            content: 'SYSTEM FAILURE';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Permanent Marker';
+            color: rgba(255,0,85,0.2);
+            font-size: 20px;
+        }
+
+        .slide-container > * { position: relative; z-index: 1; }
+
+        /* TYPOGRAPHY */
+        h1, h2 { font-family: 'Permanent Marker', cursive; text-transform: uppercase; }
+        h1 { font-size: 110px; line-height: 0.85; color: #ff0055; text-shadow: 8px 8px #38bdf8; transform: rotate(-3deg); }
+        .slide-title { font-size: 65px; color: #38bdf8; margin-bottom: 40px; border-bottom: 10px solid #ff0055; display: inline-block; transform: skewX(-10deg); }
+        p, li { font-size: 26px; line-height: 1.2; color: #f8fafc; }
+        .accent { color: #000; font-weight: 700; background: #facc15; padding: 0px 10px; display: inline-block; transform: rotate(2deg); }
+        .red-accent { color: #fff; background: #ff0055; padding: 2px 10px; font-family: 'Permanent Marker'; }
+
+        /* PROGRESS BARS OF DESPAIR */
+        .desperation-bar {
+            width: 100%; height: 30px; background: #1e293b; border-radius: 5px; margin: 25px 0; overflow: hidden; border: 3px solid #fff; position: relative;
+        }
+        .progress { height: 100%; background: linear-gradient(90deg, #4ade80, #facc15, #ff0055, #ff0055); transition: width 1s ease-in-out; }
+        .bar-label { position: absolute; width: 100%; text-align: center; font-family: 'Permanent Marker'; color: #fff; mix-blend-mode: difference; font-size: 20px; top: 2px; }
+
+        /* LAYOUTS */
+        .two-column { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; width: 100%; align-items: center; }
+
+        .image-frame { 
+            width: 100%; height: 480px; position: relative;
+            border: 12px solid #fff; transform: rotate(3deg);
+            box-shadow: 20px 20px 0px #38bdf8;
+            background: #222;
+        }
+        .image-frame img { width: 100%; height: 100%; object-fit: cover; filter: contrast(130%) saturate(110%); }
+        .caption { 
+            position: absolute; bottom: -30px; left: -20px; background: #ff0055; color: #fff; 
+            padding: 12px 25px; font-family: 'Permanent Marker'; transform: rotate(-4deg); font-size: 28px;
+            box-shadow: 5px 5px 0 #000;
+        }
+
+        /* TILED CONTENT */
+        .tiled-content { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; width: 100%; }
+        .tile { 
+            background: #0a0a0a; padding: 35px; border: 3px solid #38bdf8; position: relative;
+            box-shadow: 10px 10px 0px rgba(56, 189, 248, 0.2);
+        }
+        .tile:nth-child(even) { transform: rotate(1.5deg); border-color: #ff0055; }
+        .tile:nth-child(odd) { transform: rotate(-1.5deg); }
+        .tile h3 { color: #facc15; font-size: 32px; margin-bottom: 15px; font-family: 'Permanent Marker'; }
+        .tile .icon { font-size: 50px; position: absolute; top: -25px; right: -15px; color: #fff; text-shadow: 3px 3px #ff0055; }
+
+        /* LIST STYLING */
+        ul { list-style: none; }
+        li { margin-bottom: 20px; position: relative; padding-left: 60px; }
+        li::before { content: '☠️'; position: absolute; left: 0; font-size: 35px; top: -5px; }
+
+        /* WARNING SIGNS */
+        .warning-tape {
+            background: repeating-linear-gradient(45deg, #facc15, #facc15 30px, #000 30px, #000 60px);
+            height: 60px; width: 140%; position: absolute; left: -20%; transform: rotate(-4deg); bottom: 50px;
+            display: flex; align-items: center; justify-content: center; font-family: 'Permanent Marker'; color: #000; font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: The Descent -->
+    <div class="slide-container" id="slide1">
+        <div style="text-align: center; margin-top: 120px;">
+            <p style="font-family: 'Permanent Marker'; font-size: 35px; color: #38bdf8; letter-spacing: 8px;">LEVEL 1: INITIALIZE MAYHEM</p>
+            <h1>CTRL + COFFEE<br><span style="color:#fff; text-shadow: 10px 10px #ff0055;">+ CHAOS</span></h1>
+            <div style="margin-top: 60px;">
+                <span class="red-accent" style="font-size: 40px; transform: rotate(3deg); display: inline-block;">THE 48-HOUR SURVIVAL GAUNTLET</span>
+            </div>
+        </div>
+        <div class="warning-tape">CRITICAL ERROR // NO SLEEP DETECTED // CRITICAL ERROR</div>
+    </div>
+
+    <!-- Slide 2: The Delusion -->
+    <div class="slide-container" id="slide2">
+        <h2 class="slide-title">Hour 0: False Hope</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p style="font-size: 36px; margin-bottom: 25px;">"We're going to revolutionize <span class="accent">AI-Powered Toasters</span> using Quantum-Leap-Web3."</p>
+                    <ul>
+                        <li><span class="red-accent">Ego Level:</span> 999++</li>
+                        <li><span class="red-accent">Actual Skills:</span> HTML (maybe)</li>
+                        <li><span class="red-accent">Vibe:</span> Basically Mark Zuckerberg but cooler.</li>
+                    </ul>
+                </div>
+                <div class="image-frame">
+                    <img src="https://miro.medium.com/1*HzKOzZGpc395kKV0EpCqfw.png" alt="Smug developers">
+                    <div class="caption">BEFORE THE CRASH</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: The Reality Check -->
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Hour 14: Documentation Void</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="image-frame" style="transform: rotate(-4deg); box-shadow: -20px 20px 0px #ff0055;">
+                    <img src="https://i.ytimg.com/vi/iW3clt-RHMA/hqdefault.jpg" alt="Coder crying">
+                    <div class="caption">"I FORGOT HOW TO CODE"</div>
+                </div>
+                <div>
+                    <h3>Current Status:</h3>
+                    <ul>
+                        <li>The 'ReadMe' file is just a RickRoll link.</li>
+                        <li>StackOverflow is down (God has left the chat).</li>
+                        <li>The CSS is sentient and it hates you.</li>
+                    </ul>
+                    <div class="desperation-bar">
+                        <div class="progress" style="width: 40%;"></div>
+                        <div class="bar-label">COGNITIVE FUNCTION: 40%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: The Nutrition Crisis -->
+    <div class="slide-container" id="slide4">
+        <h2 class="slide-title">Hour 28: Pizza Alchemy</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>Your body is now a <span class="accent">Biological Dumpster</span>.</p>
+                    <ul style="margin-top: 30px;">
+                        <li><span class="red-accent">Solids:</span> Anything with pepperoni.</li>
+                        <li><span class="red-accent">Liquids:</span> Pure lightning in a can.</li>
+                        <li><span class="red-accent">Condition:</span> You can smell colors now.</li>
+                    </ul>
+                    <p style="margin-top: 30px; font-family: 'Permanent Marker'; color: #ff0055; font-size: 32px;">"IS THIS PIZZA OR A COMPONENT?"</p>
+                </div>
+                <div class="image-frame" style="border-radius: 50px; transform: scale(1.05) rotate(4deg);">
+                    <img src="https://www.pmq.com/wp-content/uploads/2020/03/MAN-EATING-GIANT-SLICE-SMALLER.jpg" alt="Caffeine and Junk">
+                    <div class="caption">PRAY FOR DIGESTION</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: The Squad Archetypes -->
+    <div class="slide-container" id="slide5">
+        <h2 class="slide-title">Know Your Captors</h2>
+        <div class="content-area">
+            <div class="tiled-content">
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-skull-crossbones"></i></div>
+                    <h3>The Zombie</h3>
+                    <p>Staring at a semi-colon for 3 hours. Has forgotten their own middle name.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-mask"></i></div>
+                    <h3>The Phantom</h3>
+                    <p>"Be right back, getting water." Gone for 16 hours. Returns with a tan.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-bomb"></i></div>
+                    <h3>The Refactorer</h3>
+                    <p>Wants to rewrite the entire engine in a language that hasn't been invented yet.</p>
+                </div>
+                <div class="tile">
+                    <div class="icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>The Demo God</h3>
+                    <p>Writes zero code. Makes a PowerPoint that makes a 'Hello World' look like the Matrix.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: The Final Push -->
+    <div class="slide-container" id="slide6">
+        <h2 class="slide-title">Hour 46: Duct Tape & Dreams</h2>
+        <div class="content-area" style="flex-direction: column;">
+            <div class="image-frame" style="height: 380px; width: 85%; margin-bottom: 30px; transform: rotate(0deg); border-color: #facc15;">
+                <img src="data:image/jpeg;base64,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" alt="Glitchy Screen">
+                <div class="caption" style="bottom: 10%; right: -20px;">IF WE DON'T TOUCH IT, IT WORKS</div>
+            </div>
+            <p style="font-size: 40px; color: #ff0055; font-family: 'Permanent Marker'; text-align: center;">"COMMENT OUT THE BUGS UNTIL IT RUNS!"</p>
+            <div class="desperation-bar" style="width: 85%;">
+                <div class="progress" style="width: 98%;"></div>
+                <div class="bar-label">WILL TO LIVE: 2%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: The Pitch (The Final Boss) -->
+    <div class="slide-container" id="slide7">
+        <h2 class="slide-title">The Pitch: Lie Gracefully</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <p>The Judges arrive. <span class="accent">Showtime.</span></p>
+                    <ul style="margin-top: 25px;">
+                        <li>"The crash is actually an <span class="red-accent">Easter Egg</span>."</li>
+                        <li>"It’s not slow, it’s <span class="red-accent">User-Centric Delay</span>."</li>
+                        <li>"The missing features are for the <span class="red-accent">v2.0 Roadmap</span>."</li>
+                    </ul>
+                </div>
+                <div class="image-frame" style="transform: rotate(-3deg);">
+                    <img src="https://media.licdn.com/dms/image/v2/C5612AQER9O5OdwphnQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1583865171948?e=2147483647&v=beta&t=WZQtEW7yVFTf-wKdcUenBTG2kjLFnpq0tuJFHxY9C2A" alt="Presentation pitch">
+                    <div class="caption">ACT NATURAL</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: The Aftermath -->
+    <div class="slide-container" id="slide8">
+        <h2 class="slide-title">Conclusion: We Survived?</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <div>
+                    <h3>The Real Prizes:</h3>
+                    <ul>
+                        <li>A new caffeine addiction.</li>
+                        <li>A GitHub repo full of crimes against humanity.</li>
+                        <li>A team that seen you at your literal worst.</li>
+                    </ul>
+                    <p class="accent" style="margin-top: 50px; font-size: 35px;">SEE YOU AT THE NEXT ONE!</p>
+                </div>
+                <div class="image-frame" style="transform: rotate(5deg);">
+                    <img src="https://msftstories.thesourcemediaassets.com/sites/388/2017/07/2016-Hackathon-Day1-019_v3-1024x391.jpg" alt="Group of friends">
+                    <div class="caption">VICTORY (OR SOMETHING)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Shutdown -->
+    <div class="slide-container" id="slide9">
+        <div style="text-align: center; margin-top: 180px;">
+            <h1 style="font-size: 140px; text-shadow: 15px 15px #38bdf8;">SLEEP.</h1>
+            <p style="font-size: 45px; margin-top: 40px; color: #38bdf8; font-family: 'Permanent Marker';">OR REBOOT AND REPEAT?</p>
+            <div style="margin-top: 70px;">
+                <i class="fa-solid fa-power-off" style="font-size: 120px; color: #ff0055; filter: drop-shadow(0 0 20px #ff0055);"></i>
+            </div>
+        </div>
+        <div class="warning-tape" style="top: 50px; bottom: auto;">SHUTTING DOWN SYSTEM // FAREWELL HUMANS</div>
+    </div>
+
+</body>
+</html>
